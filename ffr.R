@@ -24,7 +24,7 @@ library(stringr)
 options(scipen=999)
 
 #read data from excel files downloaded from FracFocus
-setwd("F:/MK/Prod_US/FracFocusMaria/ffr/fracfocuscsv")
+setwd("F:/MK/Prod_US/FracFocus/ffr/fracfocuscsv")
 file_list<-list.files(getwd())
 file_list<-c(file_list[1], file_list[12], file_list[15:21], file_list[2:11], file_list[13:14])
 
@@ -214,5 +214,76 @@ registry<-registry[registry$JobStartDate >= "2013-05-31"&registry$JobStartDate <
 
 data_wide_percent<-merge(data_wide_percent, registry ,by= "UploadKey")
 
-#save.image("F:/MK/Prod_US/FracFocusMaria/ffr/ffr.RData")
+#save.image("ffr.RData")
+
+rm(data,data_chem_percent,data_chem_percent_clean,registry,file_list,i,missing_entries,is.cas_f)
+
+#keep unique wells
+data_wide_percent$API10<-as.character(substr( data_wide_percent$APINumber,1,10))
+data_wide_percent$API10<-as.character( data_wide_percent$API10)
+data_wide_percent<- data_wide_percent[order( data_wide_percent$API10,  data_wide_percent$JobStartDate),]
+data_wide_percent<- data_wide_percent[!duplicated( data_wide_percent$API10),]
+
+data_wide_percent<-cbind( data_wide_percent[,c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName","<NA>","--")], 
+                          data_wide_percent[,!(colnames( data_wide_percent) %in% 
+                                                 c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName","<NA>","--"))])
+
+# exclude water, sand, and unknowns
+
+data_wide_percent<-select( data_wide_percent, -c("7732-18-5",
+                                                 "7631-86-9","14808-60-7","7440-21-3","<NA>","--",
+                                                 "14808-60-7","1309-37-1","1344-28-1","13463-67-7",
+                                                 "9016-87-9","7631-86-9","1305-78-8","1309-48-4",
+                                                 "57029-46-6","1318-16-7","12136-45-7","64742-30-9",
+                                                 "1341-49-7", "1313-59-3", "7664-39-3", "1317-71-1",
+                                                 "1343-88-", "27176-87-", "9025-56-3", "108-95-2",
+                                                 "308075-7-2", "66402-68-4", "9003-35-4", "64742-94-5",
+                                                 "68476-25-5", "34590-94-8", "1302-93-8", "14464-46-1",
+                                                 "50-28-2","14608-60-7", "57018-52-7"))
+
+
+data_wide_percent$JobStartDate<-as.character(data_wide_percent$JobStartDate)
+data_wide_percent$JobEndDate<-as.character(data_wide_percent$JobEndDate)
+
+# deal with missing values and negative values
+                                
+for (i in 1:6){
+  data_wide_percent[,i]<-ifelse(is.na( data_wide_percent[,i])==T,"missing", data_wide_percent[,i])
+}
+
+data_wide_percent[is.na( data_wide_percent)]<-0
+data_wide_percent[data_wide_percent<0]<-0
+data_wide_percent[data_wide_percent=="missing"]<-NA
+
+# clean data
+data_wide_percent$Total<-rowSums( data_wide_percent[,!(colnames( data_wide_percent) %in% 
+                                                         c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName"))])
+
+data_wide_percent<- data_wide_percent[data_wide_percent$Total>0,]
+
+data_wide_percent_ratio<-cbind( data_wide_percent[,c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName")],
+                                data_wide_percent[,!(colnames( data_wide_percent) %in% 
+                                                       c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName"))]/100)
+
+data_wide_percent_ratio<- data_wide_percent_ratio[data_wide_percent_ratio$Total<=1,]
+
+data_wide_percent_ratio<-cbind( data_wide_percent_ratio[,c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName")],
+                                data_wide_percent_ratio[,!(colnames( data_wide_percent_ratio) %in% 
+                                                         c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName"))]/ data_wide_percent_ratio$Total)
+
+data_wide_percent_ratio<-select( data_wide_percent_ratio,-c("Total"))
+data<- data_wide_percent_ratio
+
+rm( data_wide_percent_ratio,  data_wide_percent)
+gc(1:1000)
+
+data<-data[,colSums(data[,!(colnames(data) %in% 
+                              c("UploadKey","API10","JobStartDate","JobEndDate","APINumber","OperatorName"))], na.rm = T) != 0]
+
+data$JobStartDate<-as.Date(data$JobStartDate, "%Y-%m-%d")
+data$JobEndDate<-as.Date(data$JobEndDate, "%Y-%m-%d")
+
+data<-data[order(data$APINumber, data$JobStartDate),]
+
+#save.image("jaccard_ffr.RData")
 
