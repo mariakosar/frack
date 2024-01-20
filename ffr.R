@@ -1,5 +1,4 @@
 ##### Load packages #####
-
 library(data.table)
 library(plyr)
 library(dplyr)
