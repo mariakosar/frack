@@ -1,4 +1,4 @@
-# load("jaccard_ffr.RData") 
+# load("jaccard_ffr.RData")
 # permits
 setwd("F:/MK/Prod_US/FracFocus/Jaccard")
 data$OperatorName<-toupper(data$OperatorName)
