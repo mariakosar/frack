@@ -4,11 +4,6 @@ This project contains an extensive overlook of the data prepataion and modelling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### About the topic
-
-TBA
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### FracFocus data
 
 FracFocus is a website of the Chemical Disclosure Registry of US. The site was created to provide the public access to reported chemicals used for hydraulic fracturing within the frack area.
