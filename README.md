@@ -2,8 +2,6 @@
 
 This project contains an extensive overlook of the data prepataion and modelling process for my dissertation chapter co-authored with Veronika Selezneva and Sergei Seleznev "Do financially constrained firms engage in opportunistic and risky behavior? Evidence from the oil and gas producing sector."
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### FracFocus data
 
 FracFocus is a website of the Chemical Disclosure Registry of US. The site was created to provide the public access to reported chemicals used for hydraulic fracturing within the frack area.
