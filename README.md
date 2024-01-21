@@ -1,7 +1,7 @@
 ## About The Project
 
-This project contains an extensive overlook of the data prepataion and modelling process for my dissertation chapter co-authored with Veronika Selezneva and Sergei Seleznev "Do financially constrained firms engage in opportunistic and risky behavior? Evidence from the oil and gas producing sector."
-
+This project contains an extensive overlook of the data prepataion and modelling process for my dissertation chapter co-authored with Veronika Selezneva and Sergei Seleznev "Do financially constrained firms engage in opportunistic and risky behavior? Evidence from the oil and gas producing sector." We document opportunistic behavior of financially constrained firms in the oil and gas production sector. Our results show that firms exposed to debt shocks tend to increase the usage of experimental fracturing fluid combinations during well treatment jobs, a risky practice that can have significant impact on ultimate well recovery. The experimentation in response to the debt shock is delayed, which indicates that firms are not willing to take immediate risks. Firms with low number of debt covenants and firms with unsecured debt tend to experiment at a higher rate. The full (preliminary) article can be found here: https://www.overleaf.com/read/sfmmbhdqmghk#7b3695
+ 
 ### FracFocus data
 
 FracFocus is a website of the Chemical Disclosure Registry of US. The site was created to provide the public access to reported chemicals used for hydraulic fracturing within the frack area.
