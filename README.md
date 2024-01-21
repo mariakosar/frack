@@ -8,7 +8,19 @@ FracFocus is a website of the Chemical Disclosure Registry of US. The site was c
 
 1. Get a free FracFocus dataset at https://fracfocus.org/data-download.
    
-2. Use `ffr.R` script to clean the FracFocus data. Citation: `is.cas_f` function is directly based on source code for `is.cas` function from `webchem` package: https://www.rdocumentation.org/packages/webchem/versions/1.1.2/topics/is.cas. 
+2. Use `ffr.R` script to clean the FracFocus data:
+    - check validity of CAS number. Citation: `is.cas_f` function is directly based on source code for `is.cas` function from `webchem` package: https://www.rdocumentation.org/packages/webchem/versions/1.1.2/topics/is.cas
+    - replace invalid CAS with missing
+    - remove leading zeros
+    - sum similar CAS by UploadKey (single frack job), keep unique uploadkey and CAS
+    - change dataset from long to wide format
+    - create registry table
+    - remove duplicated APINumber and JobStartDate
+    - remove all entries with JobStartDate<31 May 2013 & >31 Dec 2020
+    - merge registry with wide chemicals data
+    - keep unique wells
+    - exclude water, sand, and unknowns
+    - clean data
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
