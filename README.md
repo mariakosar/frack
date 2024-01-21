@@ -43,23 +43,23 @@ The main advantage of Jaccard index is that it is bounded by [0,1]. s_ij = 1 mea
 We need to identify whether chemical mixture of well i is dissimilar enough to wells that were developed prior to it. One way to do this is to use an unsupervised learning algorithm, such as density-based clustering algorithm (DBC). DBC identifies high-density regions (regions with large number of points within an ≤ e-ball with specified diameter) that are separated by regions of low density. The advantage of such
 algorithm is that it can find clusters of arbitrary shape, and is capable of detecting outliers that do not fit any cluster ("noise points"), allowing to identify the experimental well ([Kriegel et al., 2011]).
 
-## DBSCAN
+#### DBSCAN
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### OPTICS
+#### OPTICS
 TBA
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### LOF
+#### LOF
 TBA
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Heuristic clustering approach
+#### Heuristic clustering approach
 TBA
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Processing of geo data in R
+#### Processing of geo data in R
 TBA
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
