@@ -28,7 +28,7 @@ FracFocus is a website of the Chemical Disclosure Registry of US. The site was c
 
 ### Jaccard index
 
-The script jaccard.R computes Jaccard index for newly drilled oil and gas wells by comparing similarity of chemicals used for fracking well j to chemicals used for fracking well i. Pairwise similarities will be used for computing distances between well i and j in terms of proportions of chemicals used in fracking. Whenever well j is distant enough from a sufficient number of priorly drilled wells, we will call this well experimental well. 
+The script `jaccard.R` computes Jaccard index for newly drilled oil and gas wells by comparing similarity of chemicals used for fracking well j to chemicals used for fracking well i. Pairwise similarities will be used for computing distances between well i and j in terms of proportions of chemicals used in fracking. Whenever well j is distant enough from a sufficient number of priorly drilled wells, we will call this well experimental well. 
 
 We follow the methodology of [Fetter et al., 2018] to construct a Jaccard index as a measure of similarity. Pairwise similarity index between wells i and j is defined as:
 
@@ -41,17 +41,17 @@ The main advantage of Jaccard index is that it is bounded by [0,1]. s_ij = 1 mea
 ### Selection of clustering algorithm
 
 We need to identify whether chemical mixture of well i is dissimilar enough to wells that were developed prior to it. One way to do this is to use an unsupervised learning algorithm, such as density-based clustering algorithm (DBC). DBC identifies high-density regions (regions with large number of points within an ≤ e-ball with specified diameter) that are separated by regions of low density. The advantage of such
-algorithm is that it can find clusters of arbitrary shape, and is capable of detecting outliers that do not fit any cluster ("noise points"), allowing to identify the experimental well ([Kriegel et al., 2011]). We consider several alternative algorithms. To select the best algorithm, we rely on critea of Schubert et al. (2017). Selection of final algorithm is performed in script optics_params_selection.R that involves usage of parallel computing due to computational intensity.  
+algorithm is that it can find clusters of arbitrary shape, and is capable of detecting outliers that do not fit any cluster ("noise points"), allowing to identify the experimental well ([Kriegel et al., 2011]). We consider several alternative algorithms. To select the best algorithm, we rely on critea of Schubert et al. (2017). Selection of final algorithm is performed in script `optics_params_selection.R` that involves usage of parallel computing due to computational intensity.  
 
 #### DBSCAN
 
-dbscan_full.R script contains the DBSCAN algorithm estimation applied on the dataset of 1000 priorly drilled wells. MinPTs and epsilon parameters are estimeted heuristically within the script.
+`dbscan_full.R` script contains the DBSCAN algorithm estimation applied on the dataset of 1000 priorly drilled wells. MinPTs and epsilon parameters are estimeted heuristically within the script.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### OPTICS
 
-optics_full.R script contains the OPTICS algorithm estimation applied on the dataset of 1000 priorly drilled wells.
+`optics_full.R` script contains the OPTICS algorithm estimation applied on the dataset of 1000 priorly drilled wells.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,7 +65,7 @@ TBA
 
 #### Processing of geo data in R
 
-In order to perform regression  analysis, we need to control for township effects of the land on which the well is drilled and fracked. Script geo_townships.R breaks US map on 6x6 miles identifier using shape file with geographical coordinates, and maps eaqch well in our sample into its respective 6x6 mile township. 
+In order to perform regression  analysis, we need to control for township effects of the land on which the well is drilled and fracked. Script `geo_townships.R` breaks US map on 6x6 miles identifier using shape file with geographical coordinates, and maps eaqch well in our sample into its respective 6x6 mile township. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
