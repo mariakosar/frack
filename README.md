@@ -65,7 +65,7 @@ TBA
 
 #### Processing of geo data in R
 
-In order to perform regression  analysis, we need to control for township effects of the land on which the well is drilled and fracked. Script `geo_townships.R` breaks US map on 6x6 miles identifier using shape file with geographical coordinates, and maps eaqch well in our sample into its respective 6x6 mile township. 
+In order to perform regression  analysis, we need to control for township effects of the land on which the well is drilled and fracked. Script `geo_townships.R` breaks US map on 6x6 miles identifier using shape file with geographical coordinates, and maps each well in our sample into its respective 6x6 mile township. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
