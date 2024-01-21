@@ -1,6 +1,8 @@
 ## About The Project
 
-This project contains an extensive overlook of the data prepataion and modelling process for my dissertation chapter co-authored with Veronika Selezneva and Sergei Seleznev "Do financially constrained firms engage in opportunistic and risky behavior? Evidence from the oil and gas producing sector." We document opportunistic behavior of financially constrained firms in the oil and gas production sector. Our results show that firms exposed to debt shocks tend to increase the usage of experimental fracturing fluid combinations during well treatment jobs, a risky practice that can have significant impact on ultimate well recovery. The experimentation in response to the debt shock is delayed, which indicates that firms are not willing to take immediate risks. Firms with low number of debt covenants and firms with unsecured debt tend to experiment at a higher rate. The full (preliminary) article can be found here: https://www.overleaf.com/read/sfmmbhdqmghk#7b3695
+This project contains an extensive overlook of the data prepataion and modelling process for my dissertation chapter co-authored with Veronika Selezneva and Sergei Seleznev "Do financially constrained firms engage in opportunistic and risky behavior? Evidence from the oil and gas producing sector." We document opportunistic behavior of financially constrained firms in the oil and gas production sector. Our results show that firms exposed to debt shocks tend to increase the usage of experimental fracturing fluid combinations during well treatment jobs, a risky practice that can have significant impact on ultimate well recovery. The experimentation in response to the debt shock is delayed, which indicates that firms are not willing to take immediate risks. Firms with low number of debt covenants and firms with unsecured debt tend to experiment at a higher rate. 
+
+The full (preliminary) article can be found here: https://www.overleaf.com/read/sfmmbhdqmghk#7b3695
  
 ### FracFocus data
 
@@ -25,6 +27,8 @@ FracFocus is a website of the Chemical Disclosure Registry of US. The site was c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Jaccard index
+
+The script jaccard.R computes Jaccard index for newly drilled oil and gas wells by comparing similarity of chemicals used for fracking well j to chemicals used for fracking well i. Pairwise similarities will be used for computing distances between well i and j in terms of proportions of chemicals used in fracking. Whenever well j is distant enough from a sufficient number of priorly drilled wells, we will call this well experimental well. 
 
 We follow the methodology of [Fetter et al., 2018] to construct a Jaccard index as a measure of similarity. Pairwise similarity index between wells i and j is defined as:
 
