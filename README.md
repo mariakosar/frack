@@ -25,10 +25,12 @@ FracFocus is a website of the Chemical Disclosure Registry of US. The site was c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Jaccard index
-We follow the methodology of [Fetter et al., 2018] to construct a Jaccard index as a measure of similarity.
+
+We follow the methodology of [Fetter et al., 2018] to construct a Jaccard index as a measure of similarity. Pairwise similarity index between wells i and j is defined as:
 
 ![image](https://github.com/mariakosar/frack/assets/17361605/34427aa2-72bf-4f44-92ee-fd76cebc1564)
 
+The main advantage of Jaccard index is that it is bounded by [0,1]. s_ij = 1 means that the fluids used in the fracturing process of wells i and j are identical, whereas s_ij = 0 implies that fluids used in wells i and j are completely different.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
