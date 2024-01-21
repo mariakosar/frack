@@ -25,7 +25,11 @@ FracFocus is a website of the Chemical Disclosure Registry of US. The site was c
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Jaccard index
-TBA
+We follow the methodology of [Fetter et al., 2018] to construct a Jaccard index as a measure of similarity.
+
+![image](https://github.com/mariakosar/frack/assets/17361605/34427aa2-72bf-4f44-92ee-fd76cebc1564)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### DBSCAN
